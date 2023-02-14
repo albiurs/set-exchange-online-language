@@ -23,7 +23,7 @@ $Users = Get-Mailbox -ResultSize Unlimited
 # List all mailboxes before changing the language and date/time settings
 Write-Host "Mailboxes before changes:"
 foreach ($User in $Users) {
-  Get-MailboxRegionalConfiguration -Identity $User.Alias | Select Identity,Language,DateFormat,TimeFormat,TimeZone
+  Get-MailboxRegionalConfiguration -Identity $User.Alias | Select-Object Identity,Language,DateFormat,TimeFormat,TimeZone
 }
 
 # Loop through each user and change the language and date/time settings
@@ -35,7 +35,7 @@ foreach ($User in $Users) {
 # List all mailboxes after changing the language and date/time settings
 Write-Host "Mailboxes after changes:"
 foreach ($User in $Users) {
-  Get-MailboxRegionalConfiguration -Identity $User.Alias | Select Identity,Language,DateFormat,TimeFormat,TimeZone
+  Get-MailboxRegionalConfiguration -Identity $User.Alias | Select-Object Identity,Language,DateFormat,TimeFormat,TimeZone
 }
 
 # Disconnect from Exchange Online
